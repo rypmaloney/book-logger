@@ -1,0 +1,75 @@
+body {
+    font-family: sans-serif;
+    background-color: rgba(214, 191, 114, 0.51);
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left:10%;
+    grid-gap: 20px;
+    width: 80%;
+    min-width: 600px;
+    height: 800px;
+    
+}
+.card {
+
+    background-color: azure;
+    box-shadow: 5px 5px 1px #9a9393;
+    justify-content: center;
+    text-align: center;
+    border-radius: 25px;
+    
+    
+
+}
+.title{
+    font-size: 1.5em;
+    font-family: monospace; 
+    margin: 40px 10px 5px 10px;
+}
+
+#addBookButton {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+    
+    
+
+
+}
+
+#addBookButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#addBookButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#addBookButton:hover span {
+  padding-right: 25px;
+}
+
+#addBookButton:hover span:after {
+  opacity: 1;
+  right: 0;
