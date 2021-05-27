@@ -1,23 +1,27 @@
 body {
     font-family: sans-serif;
+    background-color: #f4f2ed;
 }
 
 
 #main {
-    transition: margin-left .5s;
+    transition:  .5s;
+    
 }
 
-#container, #header{
+#container,
+#header {
     display: flex;
     justify-content: center;
     align-items: center;
 
+
 }
 
-#bookTable  {
+#bookTable {
     width: 90%;
-    float: left;
-    clear: right;
+    margin-left:12%;
+
 
 }
 
@@ -33,6 +37,14 @@ tr:hover {
     background-color: aliceblue;
 
 }
+
+
+.rowRead {
+    color: gray;
+    
+    
+}
+
 
 #formContainer {
     height: 100%;
@@ -57,15 +69,11 @@ tr:hover {
 
 }
 
-#bookForm label {
-
-
-
-}
+#bookForm label {}
 
 #read {
     width: 10px !important;
-    
+
 }
 
 #bookForm input {
@@ -82,7 +90,7 @@ tr:hover {
 
 /*******BUTTTONS*******/
 
-.read {
+.readbutton {
     width: 80px;
     height: 45px;
     text-decoration: none;
@@ -91,18 +99,27 @@ tr:hover {
     vertical-align: top;
     transition: 0.4s;
     border-radius: 4px;
-    background-color: hsl(0, 0%, 45%);
+
     border: none;
     color: #ffffff;
-    margin-left:10px;
+    margin-left: 10px;
 
-
-
-
-    
 }
 
-.delete{
+.unread {
+    background-color: green;
+
+}
+
+.read {
+    background-color: hsl(0, 0%, 45%);
+
+
+
+
+}
+
+.delete {
     width: 80px;
     height: 45px;
     text-decoration: none;
@@ -116,7 +133,7 @@ tr:hover {
     color: #ffffff;
     margin-left: 10px;
 
-    
+
 }
 
 #submitButton {

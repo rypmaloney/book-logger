@@ -56,14 +56,14 @@ bookTable.addEventListener('click', function (e) {
         myLibrary.splice(indexNumber, 1);
         displayLibrary();
         
-    } else if (e.target.classList.contains('read')) {
+        
+    //Mark as read/unread button
+    } else if (e.target.classList.contains('readbutton')) {
         if( myLibrary[indexNumber].read === 'read') {
             myLibrary[indexNumber].read = 'unread'
         }else {
             myLibrary[indexNumber].read = 'read'
         }
-        
-        
         displayLibrary();
 
     }
@@ -118,12 +118,20 @@ function displayLibrary() {
 
         let readBtn = document.createElement('button');
         readBtn.setAttribute('data', i);
-        readBtn.classList.add('read');
+        readBtn.classList.add('readbutton');
+        
 
         if (myLibrary[i].read === 'read') {
+            bookRow.classList.add('rowRead')
             readBtn.textContent = 'Mark as unread';
+            readBtn.classList.add('unread');
+            readBtn.classList.add('read');
+            
         } else {
+            bookRow.classList.remove('rowRead')
             readBtn.textContent = 'Mark as read';
+            readBtn.classList.remove('read');
+            readBtn.classList.add('unread');
         }
 
         bookRow.appendChild(readBtn)
