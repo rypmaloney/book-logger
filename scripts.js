@@ -1,25 +1,6 @@
 // array of books
 
-let myLibrary = [
-    {
-        author: "Haruki Murakami",
-        pages: 370,
-        read: "read",
-        title: "Colorless Tsukuru Tazaki and His Years of Pilgrimage",
-     },
-    {
-        author: "Haruki Murakami",
-        pages: 1100,
-        read: "unread",
-        title: "1Q84",
-     }
-
-
-
-
-];
-
-
+let myLibrary = [];
 
 
 const bookList = document.getElementById('bookList');
@@ -47,24 +28,48 @@ closeButton.addEventListener('click', function () {
 
 
 
-
+//Submitting a new book
 submit.addEventListener('click', function () {
+    let readStatus = 'unread';
+    if (form.read.checked) {
+        readStatus = 'read'
+    }
+
 
     let newBook =
-        new book(form.title.value, form.author.value, form.pages.value, form.read.value)
+        new book(form.title.value, form.author.value, form.pages.value, readStatus)
 
-    addBookToLibrary(newBook)
-    removeChildNodes(bookTable)
-    displayLibrary()
-    form.reset()
+    addBookToLibrary(newBook);
+    displayLibrary();
+    form.reset();
 
 
 })
 
+//Buttons on the table - event listener
+bookTable.addEventListener('click', function (e) {
+    let indexNumber = e.target.getAttribute("data")
+
+    //delete button
+    if (e.target.classList.contains('delete')) {
+
+        myLibrary.splice(indexNumber, 1);
+        displayLibrary();
+        
+    } else if (e.target.classList.contains('read')) {
+        if( myLibrary[indexNumber].read === 'read') {
+            myLibrary[indexNumber].read = 'unread'
+        }else {
+            myLibrary[indexNumber].read = 'read'
+        }
+        
+        
+        displayLibrary();
+
+    }
 
 
-
-
+})
 
 //Remove all children
 function removeChildNodes(parent) {
@@ -73,17 +78,14 @@ function removeChildNodes(parent) {
     }
 }
 
-
-
 //book constructor 
-
 function book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-
 }
+
 //add book to library array
 function addBookToLibrary(book) {
     myLibrary.push(book)
@@ -92,8 +94,10 @@ function addBookToLibrary(book) {
 
 // loops through myLibrary displaying books
 function displayLibrary() {
+    removeChildNodes(bookTable)
     for (i = 0; i < myLibrary.length; i++) {
         let bookRow = document.createElement('tr');
+        bookRow.setAttribute('data', i);
         bookTable.appendChild(bookRow);
 
         let title = document.createElement('td');
@@ -111,6 +115,24 @@ function displayLibrary() {
         let read = document.createElement('td');
         read.textContent = myLibrary[i].read;
         bookRow.appendChild(read);
+
+        let readBtn = document.createElement('button');
+        readBtn.setAttribute('data', i);
+        readBtn.classList.add('read');
+
+        if (myLibrary[i].read === 'read') {
+            readBtn.textContent = 'Mark as unread';
+        } else {
+            readBtn.textContent = 'Mark as read';
+        }
+
+        bookRow.appendChild(readBtn)
+
+        let deletebtn = document.createElement('button');
+        deletebtn.setAttribute('data', i);
+        deletebtn.classList.add('delete');
+        deletebtn.textContent = 'Delete';
+        bookRow.appendChild(deletebtn)
 
 
 

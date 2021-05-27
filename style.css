@@ -7,7 +7,7 @@ body {
     transition: margin-left .5s;
 }
 
-#container{
+#container, #header{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,22 +58,22 @@ tr:hover {
 }
 
 #bookForm label {
-    padding: 10px;
 
 
+
+}
+
+#read {
+    width: 10px !important;
+    
 }
 
 #bookForm input {
     padding: 5px;
-    width: 200px
+    width: 300px;
+    margin-bottom: 40px;
 }
 
-#submitButton {
-    margin-top: 100px;
-
-
-
-}
 
 
 
@@ -82,11 +82,61 @@ tr:hover {
 
 /*******BUTTTONS*******/
 
+.read {
+    width: 80px;
+    height: 45px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    transition: 0.4s;
+    border-radius: 4px;
+    background-color: hsl(0, 0%, 45%);
+    border: none;
+    color: #ffffff;
+    margin-left:10px;
+
+
+
+
+    
+}
+
+.delete{
+    width: 80px;
+    height: 45px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    transition: 0.4s;
+    border-radius: 4px;
+    background-color: hsl(0, 50%, 48%);
+    border: none;
+    color: #ffffff;
+    margin-left: 10px;
+
+    
+}
+
+#submitButton {
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 150px;
+
+}
+
+
 #closeButton {
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px;
+    font-size: 14px;
+    height: 45px;
+    width: 100px;
     margin-left: 50px;
     margin-top: 20px;
 }
@@ -100,12 +150,14 @@ tr:hover {
 #formContainer button {
     padding: 10px 10px 10px 10px;
     text-decoration: none;
-    font-size: 20px;
+
     color: white;
     display: block;
     transition: 0.4s;
-    border: none;
+    border-radius: 4px;
     background-color: #4e7aa5;
+    border: none;
+    color: #FFFFFF;
 }
 
 #addBookButton {
@@ -115,13 +167,13 @@ tr:hover {
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 18px;
+    font-size: 14px;
     padding: 10px;
-    width: 200px;
+    width: 160px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px 5px 5px 5px;
-    height: 60px;
+    margin: 10px 5px 5px 5px;
+    height: 45px;
 }
 
 #addBookButton span {
