@@ -1,9 +1,4 @@
-const bookList = document.getElementById('bookList');
-const container = document.getElementById('container');
-const addBookButton = document.getElementById('addBookButton');
-
-
-
+// array of books
 
 let myLibrary = [
     {
@@ -15,16 +10,73 @@ let myLibrary = [
     {
         author: "Haruki Murakami",
         pages: 1100,
-        read: "read",
+        read: "unread",
         title: "1Q84",
      }
 
 
 
 
-]; // array of books
+];
 
-//book constructor
+
+
+
+const bookList = document.getElementById('bookList');
+const bookTable = document.getElementById('bookTable');
+const addBookButton = document.getElementById('addBookButton');
+
+const form = document.getElementById('bookForm');
+const submit = document.getElementById('submitButton');
+const closeButton = document.getElementById('closeButton');
+
+
+
+//Open Sidebar
+addBookButton.addEventListener('click', function () {
+    document.getElementById('formContainer').style.width = '400px';
+    document.getElementById('main').style.marginLeft = '400px';
+});
+
+
+//Close Sidebar
+closeButton.addEventListener('click', function () {
+    document.getElementById('formContainer').style.width = '0px';
+    document.getElementById('main').style.marginLeft = '0px';
+});
+
+
+
+
+submit.addEventListener('click', function () {
+
+    let newBook =
+        new book(form.title.value, form.author.value, form.pages.value, form.read.value)
+
+    addBookToLibrary(newBook)
+    removeChildNodes(bookTable)
+    displayLibrary()
+    form.reset()
+
+
+})
+
+
+
+
+
+
+//Remove all children
+function removeChildNodes(parent) {
+    while (parent.children[1]) {
+        parent.removeChild(parent.children[1]);
+    }
+}
+
+
+
+//book constructor 
+
 function book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -32,7 +84,6 @@ function book(title, author, pages, read) {
     this.read = read
 
 }
-
 //add book to library array
 function addBookToLibrary(book) {
     myLibrary.push(book)
@@ -42,29 +93,27 @@ function addBookToLibrary(book) {
 // loops through myLibrary displaying books
 function displayLibrary() {
     for (i = 0; i < myLibrary.length; i++) {
-        let bookCard = document.createElement('div');
-        bookCard.classList.add('card');
-        container.insertBefore(bookCard, addBookButton);
-        
-        let title = document.createElement('p');
-        title.classList.add('title');
-        title.textContent = myLibrary[i].title;
-        bookCard.appendChild(title);
-        
-        let author = document.createElement('p');
-        author.classList.add('author');
-        author.textContent = `by ${myLibrary[i].author}`;
-        bookCard.appendChild(author);
-        
-        let pages = document.createElement('p');
-        pages.classList.add('pages');
-        pages.textContent = `${myLibrary[i].pages} pages`;
-        bookCard.appendChild(pages);
-        
-  
+        let bookRow = document.createElement('tr');
+        bookTable.appendChild(bookRow);
 
-        
-        
+        let title = document.createElement('td');
+        title.textContent = myLibrary[i].title;
+        bookRow.appendChild(title);
+
+        let author = document.createElement('td');
+        author.textContent = myLibrary[i].author;
+        bookRow.appendChild(author);
+
+        let pages = document.createElement('td');
+        pages.textContent = myLibrary[i].pages;
+        bookRow.appendChild(pages);
+
+        let read = document.createElement('td');
+        read.textContent = myLibrary[i].read;
+        bookRow.appendChild(read);
+
+
+
 
     }
 }

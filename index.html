@@ -2,38 +2,70 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Library</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Reading List</h1>
-    
-   
-    
-    <div id ='container'>
-        <div class = 'card'>
-            <p class = 'title'>This is a sample title</p>
-            <p class = 'author'>Ryan Maloney</p>
-            <p class = 'pages'>1200</p>
-            <p class = 'read'>read</p>
-        
-        </div>
-        <div class = 'card'>
-            <p class = 'title'>This is a sample title</p>
-            <p class = 'author'>Ryan Maloney</p>
-            <p class = 'pages'>1200</p>
-            <p class = 'read'>read</p>
-        
-        </div>
-        
-         <button type = 'button' id = 'addBookButton'><span>Add New Book</span></button>
 
-   
-    
+<body>
+
+    <div id='formContainer'>
+        <form id='bookForm'>
+            <label for='title'>Title:</label><br>
+            <input type='text' id='title' name='title'><br>
+            <label for='author'>Author:</label><br>
+            <input type='text' id='author' name='author'><br>
+            <label for='pages'>Pages:</label><br>
+            <input type='text' id='pages' name='pages'><br>
+            <label for='read'>Have you read it?</label><br>
+            <input type='text' id='read' name='read'><br>
+
+            <button type="button" id='submitButton'>Submit</button>
+
+        </form>
+
+        <button type='button' id='closeButton'><span>Close</span></button>
+
+
+
     </div>
-    
-    
-  <script src="scripts.js"></script>
-</body>
-</html>
+
+    <main id='main'>
+        <h1>Book Catalog</h1>
+
+
+
+        <div id='header'>
+
+            <button type='button' id='addBookButton'><span>Add New Book</span></button>
+
+        </div>
+
+        <div id='container'>
+
+            <table id='bookTable'>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>read/unread</th>
+                </tr>
+                <tr>
+                    <td>A book title goes here</td>
+                    <td>Ryan Maloney</td>
+                    <td>140</td>
+                    <td>read</td>
+                </tr>
+
+
+
+
+
+            </table>
+        </div>
+
+
+    </main>
+
+    <script src="scripts.js"></script>
+</body></html>
