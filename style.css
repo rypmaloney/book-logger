@@ -70,6 +70,10 @@ th {
     width: 10px !important;
 }
 
+#readLabel {
+    width: 250px;
+}
+
 #bookForm input {
     padding: 5px;
     width: 300px;
