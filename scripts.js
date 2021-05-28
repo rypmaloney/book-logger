@@ -67,6 +67,7 @@ function readOrDelete(e) {
             myLibrary[indexNumber].read = 'read'
         }
     }
+    setLocal()
     displayLibrary();
 }
 
