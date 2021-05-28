@@ -1,75 +1,66 @@
-// array of books
-
-let myLibrary = [];
-
-
+/******VARIABLES*****/
+let myLibrary = []; // array of books
 const bookList = document.getElementById('bookList');
 const bookTable = document.getElementById('bookTable');
 const addBookButton = document.getElementById('addBookButton');
-
 const form = document.getElementById('bookForm');
 const submit = document.getElementById('submitButton');
 const closeButton = document.getElementById('closeButton');
+const validStatement = document.createElement('p');
 
 
+/*******FUNCTIONS******/
 
-//Open Sidebar
-addBookButton.addEventListener('click', function () {
-    document.getElementById('formContainer').style.width = '400px';
-    document.getElementById('main').style.marginLeft = '400px';
-});
-
-
-//Close Sidebar
-closeButton.addEventListener('click', function () {
-    document.getElementById('formContainer').style.width = '0px';
-    document.getElementById('main').style.marginLeft = '0px';
-});
-
-
-
-//Submitting a new book
-submit.addEventListener('click', function () {
+//Submit form function
+function formSubmit() {
     let readStatus = 'unread';
-    if (form.read.checked) {
-        readStatus = 'read'
+
+    //FormValidation goes here
+    if (form.title.value.length <= 1 || form.author.value <= 1 ) {
+        validStatement.textContent = '*Finish filling out the form'
+        validStatement.classList.add('validation');
+        form.appendChild(validStatement);
+
+
+
+    } else {
+        if (form.read.checked) {
+            readStatus = 'read'
+        };
+        let newBook = new book(
+            form.title.value,
+            form.author.value,
+            form.pages.value,
+            readStatus
+        );
+        addBookToLibrary(newBook);
+        displayLibrary();
+        form.reset();
+        form.removeChild(validStatement);
     }
+}
 
+//Read button clicked or Delete button clicked
+function readOrDelete(e) {
 
-    let newBook =
-        new book(form.title.value, form.author.value, form.pages.value, readStatus)
-
-    addBookToLibrary(newBook);
-    displayLibrary();
-    form.reset();
-
-
-})
-
-//Buttons on the table - event listener
-bookTable.addEventListener('click', function (e) {
-    let indexNumber = e.target.getAttribute("data")
+    let indexNumber = e.target.getAttribute("data") //associates row with index of book in array
 
     //delete button
     if (e.target.classList.contains('delete')) {
-
         myLibrary.splice(indexNumber, 1);
-        displayLibrary();
-        
-        
-    //Mark as read/unread button
+
+        //Mark as read/unread button
     } else if (e.target.classList.contains('readbutton')) {
-        if( myLibrary[indexNumber].read === 'read') {
+        if (myLibrary[indexNumber].read === 'read') {
             myLibrary[indexNumber].read = 'unread'
-        }else {
+        } else {
             myLibrary[indexNumber].read = 'read'
         }
-        displayLibrary();
-
     }
+    displayLibrary();
+}
 
 
-})
 
 //Remove all children
 function removeChildNodes(parent) {
@@ -119,14 +110,14 @@ function displayLibrary() {
         let readBtn = document.createElement('button');
         readBtn.setAttribute('data', i);
         readBtn.classList.add('readbutton');
-        
+
 
         if (myLibrary[i].read === 'read') {
             bookRow.classList.add('rowRead')
             readBtn.textContent = 'Mark as unread';
             readBtn.classList.add('unread');
             readBtn.classList.add('read');
-            
+
         } else {
             bookRow.classList.remove('rowRead')
             readBtn.textContent = 'Mark as read';
@@ -147,3 +138,28 @@ function displayLibrary() {
 
     }
 }
+
+
+/******EVENT LISTENERS*****/
+
+//Open Sidebar
+addBookButton.addEventListener('click', function () {
+    document.getElementById('formContainer').style.width = '400px';
+    document.getElementById('main').style.marginLeft = '400px';
+});
+
+//Close Sidebar
+closeButton.addEventListener('click', function () {
+    document.getElementById('formContainer').style.width = '0px';
+    document.getElementById('main').style.marginLeft = '0px';
+});
+
+//Submitting a new book
+submit.addEventListener('click', function () {
+    formSubmit()
+})
+
+//Buttons on the table - event listener
+bookTable.addEventListener('click', function (e) {
+    readOrDelete(e)
+})
