@@ -6,3 +6,5 @@ This project is a way to catalog books you've read or intend to read. Create an 
 The catalog is stored with local storage. 
 
 This project was a nice warmup for object constructors and arrays of objects. 
+
+[Live demo](https://rawcdn.githack.com/rypmaloney/book-logger/a45b683d1c65b6b7024188a8124da7954ec3c9ae/index.html)
