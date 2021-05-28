@@ -3,17 +3,14 @@ body {
     background-color: #f4f2ed;
 }
 
-
 #main {
     transition: .5s;
     font-family: 'Red Hat Display', sans-serif;
-
 }
 
 h1 {
     font-family: 'Red Hat Display', sans-serif;
     font-size: 35px;
-
 }
 
 #container,
@@ -21,15 +18,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
 }
 
 #bookTable {
     width: 90%;
-
-
-
 }
 
 th,
@@ -39,12 +31,10 @@ td {
     padding: 15px;
     border-collapse: collapse;
     text-align: left;
-
 }
 
-tr {
+td {
     background-color: white;
-
 }
 
 th {
@@ -52,20 +42,9 @@ th {
     background-color: aliceblue;
 }
 
-
-
-tr:hover {
-    background-color: aliceblue;
-
-}
-
-
 .rowRead {
     color: gray;
-
-
 }
-
 
 #formContainer {
     height: 100%;
@@ -78,8 +57,6 @@ tr:hover {
     overflow-x: hidden;
     padding-top: 100px;
     transition: 0.5s;
-
-
 }
 
 #bookForm {
@@ -87,15 +64,10 @@ tr:hover {
     font-size: 17px;
     overflow-x: hidden;
     font-family: 'Red Hat Display', sans-serif;
-
-
 }
-
-#bookForm label {}
 
 #read {
     width: 10px !important;
-
 }
 
 #bookForm input {
@@ -104,16 +76,9 @@ tr:hover {
     margin-bottom: 40px;
 }
 
-
 .validation {
     color: red;
-
 }
-
-
-
-
-
 
 /*******BUTTTONS*******/
 
@@ -130,21 +95,15 @@ tr:hover {
     border: none;
     color: #ffffff;
     margin-left: 10px;
-
+    margin-top: 4px;
 }
 
 .unread {
     background-color: green;
-
-
 }
 
 .read {
     background-color: hsl(0, 0%, 45%);
-
-
-
-
 }
 
 .delete {
@@ -161,8 +120,7 @@ tr:hover {
     color: #ffffff;
     margin-left: 10px;
     cursor: pointer;
-
-
+    margin-top: 4px;
 }
 
 #submitButton {
@@ -201,12 +159,7 @@ tr:hover {
 
 #closeButton:hover {
     padding-left: 25px;
-
-
 }
-
-
-
 
 #formContainer button {
     padding: 10px 10px 10px 10px;
@@ -231,7 +184,6 @@ tr:hover {
     font-size: 14px;
     padding: 10px;
     width: 160px;
-    transition: all 0.5s;
     cursor: pointer;
     margin: 12px 5px 5px 10px;
     height: 45px;
@@ -250,12 +202,11 @@ tr:hover {
     opacity: 0;
     top: 0;
     right: -20px;
-    transition: 0.5s;
+    transition: 1s;
 }
 
 #addBookButton:hover span {
     padding-right: 25px;
-
 }
 
 #addBookButton:hover span:after {
