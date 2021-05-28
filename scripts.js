@@ -8,8 +8,24 @@ const submit = document.getElementById('submitButton');
 const closeButton = document.getElementById('closeButton');
 const validStatement = document.createElement('p');
 
+populateLocal()
 
 /*******FUNCTIONS******/
+
+//Set local storage
+function setLocal() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary))
+    
+}
+
+//retreive local storage
+function populateLocal() {
+  myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+  if (myLibrary === null) myLibrary = [];
+  displayLibrary();
+}
+
+
 
 //Submit form function
 function formSubmit() {
@@ -20,8 +36,6 @@ function formSubmit() {
         validStatement.textContent = '*Finish filling out the form'
         validStatement.classList.add('validation');
         form.appendChild(validStatement);
-
-
 
     } else {
         if (form.read.checked) {
@@ -80,6 +94,7 @@ function book(title, author, pages, read) {
 //add book to library array
 function addBookToLibrary(book) {
     myLibrary.push(book)
+    setLocal()
 }
 
 

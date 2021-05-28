@@ -5,15 +5,15 @@ body {
 
 
 #main {
-    transition:  .5s;
+    transition: .5s;
     font-family: 'Red Hat Display', sans-serif;
-    
+
 }
 
 h1 {
-font-family: 'Red Hat Display', sans-serif;
-font-size: 35px;
-    
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 35px;
+
 }
 
 #container,
@@ -26,19 +26,33 @@ font-size: 35px;
 }
 
 #bookTable {
-    width: 80%;
-    margin-left:8%;
+    width: 90%;
+
 
 
 }
 
 th,
 td {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
     padding: 15px;
     border-collapse: collapse;
     text-align: left;
+
 }
+
+tr {
+    background-color: white;
+
+}
+
+th {
+    font-size: 18px;
+    background-color: aliceblue;
+}
+
+
 
 tr:hover {
     background-color: aliceblue;
@@ -48,8 +62,8 @@ tr:hover {
 
 .rowRead {
     color: gray;
-    
-    
+
+
 }
 
 
@@ -93,7 +107,7 @@ tr:hover {
 
 .validation {
     color: red;
-    
+
 }
 
 
@@ -112,7 +126,7 @@ tr:hover {
     vertical-align: top;
     transition: 0.4s;
     border-radius: 4px;
-cursor: pointer;
+    cursor: pointer;
     border: none;
     color: #ffffff;
     margin-left: 10px;
@@ -188,7 +202,7 @@ cursor: pointer;
 #closeButton:hover {
     padding-left: 25px;
 
-    
+
 }
 
 
@@ -241,7 +255,7 @@ cursor: pointer;
 
 #addBookButton:hover span {
     padding-right: 25px;
-    
+
 }
 
 #addBookButton:hover span:after {
