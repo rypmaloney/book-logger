@@ -15,7 +15,6 @@ populateLocal()
 //Set local storage
 function setLocal() {
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary))
-    
 }
 
 //retreive local storage
@@ -24,8 +23,6 @@ function populateLocal() {
   if (myLibrary === null) myLibrary = [];
   displayLibrary();
 }
-
-
 
 //Submit form function
 function formSubmit() {
@@ -56,7 +53,6 @@ function formSubmit() {
 
 //Read button clicked or Delete button clicked
 function readOrDelete(e) {
-
     let indexNumber = e.target.getAttribute("data") //associates row with index of book in array
 
     //delete button
@@ -74,9 +70,7 @@ function readOrDelete(e) {
     displayLibrary();
 }
 
-
-
-//Remove all children
+//Remove all children (except table header!)
 function removeChildNodes(parent) {
     while (parent.children[1]) {
         parent.removeChild(parent.children[1]);
@@ -96,7 +90,6 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
     setLocal()
 }
-
 
 // loops through myLibrary displaying books
 function displayLibrary() {
@@ -126,7 +119,6 @@ function displayLibrary() {
         readBtn.setAttribute('data', i);
         readBtn.classList.add('readbutton');
 
-
         if (myLibrary[i].read === 'read') {
             bookRow.classList.add('rowRead')
             readBtn.textContent = 'Mark as unread';
@@ -147,10 +139,6 @@ function displayLibrary() {
         deletebtn.classList.add('delete');
         deletebtn.textContent = 'Delete';
         bookRow.appendChild(deletebtn)
-
-
-
-
     }
 }
 
