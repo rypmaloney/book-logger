@@ -7,4 +7,4 @@ The catalog is stored with local storage.
 
 This project was a nice warmup for object constructors and arrays of objects. 
 
-[Live demo](https://rawcdn.githack.com/rypmaloney/book-logger/a45b683d1c65b6b7024188a8124da7954ec3c9ae/index.html)
+[Live demo](https://rawcdn.githack.com/rypmaloney/book-logger/6fb190e9e7d9224ded48b00a938acc5264ceb41e/index.html)
